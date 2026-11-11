@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Derby Chat Simulator</title>
+  </head>
+  <body class="sim">
+    <main class="sim__wrap">
+      <header class="sim__header">
+        <h1>💬 Chat simulator</h1>
+        <p class="sim__hint">Pretend to be TikTok viewers. Change the nickname to play as someone else. Keep the host tab visible beside this one.</p>
+      </header>
+
+      <section class="sim__status" id="status" aria-live="polite">
+        <p class="sim__muted">Waiting for the host tab… (open <a href="./" target="_blank" rel="noopener">the game</a>)</p>
+      </section>
+
+      <form class="sim__form" id="chat-form" autocomplete="off">
+        <label class="sim__field">
+          <span>Nickname</span>
+          <input id="nickname" name="nickname" maxlength="24" required placeholder="e.g. Mai" />
+        </label>
+        <div class="sim__recent" id="recent" aria-label="Recent nicknames"></div>
+        <div class="sim__quick" id="quick">
+          <button type="button" data-text="A">A</button>
+          <button type="button" data-text="B">B</button>
+          <button type="button" data-text="C">C</button>
+          <button type="button" data-text="D">D</button>
+          <button type="button" data-text="hi! 👋">join 👋</button>
+        </div>
+        <label class="sim__field">
+          <span>Message</span>
+          <div class="sim__row">
+            <input id="message" name="message" maxlength="200" required placeholder="Type a chat message" />
+            <button type="submit" class="btn btn--primary">Send</button>
+          </div>
+        </label>
+        <p class="sim__error" id="form-error" role="alert" hidden></p>
+      </form>
+
+      <section>
+        <h2 class="sim__h2">Chat log</h2>
+        <ul class="sim__log" id="log"></ul>
+      </section>
+    </main>
+    <script type="module" src="/src/player.ts"></script>
+  </body>
+</html>
